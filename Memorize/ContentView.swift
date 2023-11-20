@@ -10,7 +10,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         HStack {
-            CardView(isFaceUp: false)
+//            CardView(isFaceUp: false)
+            CardView()
             CardView()
             CardView()
             CardView()
@@ -20,7 +21,7 @@ struct ContentView: View {
 }
 
 struct CardView: View {
-    var isFaceUp: Bool = true
+    @State var isFaceUp = true
     
     var body: some View {
         ZStack(alignment: .center) {
@@ -34,6 +35,9 @@ struct CardView: View {
             } else {
                 base.fill(.orange)
             }
+        }
+        .onTapGesture {
+            isFaceUp.toggle()
         }
     }
 }
